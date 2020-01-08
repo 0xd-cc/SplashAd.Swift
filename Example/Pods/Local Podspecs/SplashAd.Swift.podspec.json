@@ -1,0 +1,22 @@
+{
+  "name": "SplashAd.Swift",
+  "version": "0.1.0",
+  "summary": "A short description of SplashAd.Swift.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/0xd-cc/SplashAd.Swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "0xd-cc": "i@0xd.cc"
+  },
+  "source": {
+    "git": "https://github.com/0xd-cc/SplashAd.Swift.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SplashAd.Swift/Classes/**/*"
+}

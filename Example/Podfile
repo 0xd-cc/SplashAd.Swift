@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SplashAd.Swift_Example' do
+  pod 'SplashAd.Swift', :path => '../'
+
+  target 'SplashAd.Swift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
