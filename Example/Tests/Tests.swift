@@ -1,5 +1,5 @@
 import XCTest
-import SplashAd.Swift
+import SplashAd_Swift
 
 class Tests: XCTestCase {
     

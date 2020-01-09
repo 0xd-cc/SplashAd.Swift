@@ -1,0 +1,6 @@
+framework module SplashAd_Swift {
+  umbrella header "SplashAd.Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

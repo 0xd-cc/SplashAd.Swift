@@ -1,5 +1,5 @@
 PODS:
-  - SplashAd.Swift (0.1.0)
+  - SplashAd.Swift (0.0.1)
 
 DEPENDENCIES:
   - SplashAd.Swift (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SplashAd.Swift: a864ed7fcb17dd68ad7cb11ff4c53a6564e12889
+  SplashAd.Swift: 55842665b911853edca783adcb59581bdc41168d
 
-PODFILE CHECKSUM: a9b1d495aa915fb3a1bf303d69eac33d72d5cd7f
+PODFILE CHECKSUM: 309d70770937321005eb796e1bf67bbb99b0c6df
 
 COCOAPODS: 1.8.4
