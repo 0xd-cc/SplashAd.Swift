@@ -14,7 +14,6 @@
 		6CD9422A8E9F1D3CD2296419E4228925 /* SplashAd.Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6780FFFE324504E962B2A7F3C6B9166F /* SplashAd.Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78B2BC1F22A763277BA34FF0CB450D6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1352070C0BBF2F377B33D5BD0B34BA6 /* ContentView.swift */; };
 		7C72C27825B2225DD86C8AAE0C3CA883 /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224BAFDFC975126DF7167B5EC01DAB9 /* CountDownTimer.swift */; };
-		7D31801B4CAA4C5A02202CF892EC1EBA /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248B09A3B6FE6006AFF5DEFF82670A8 /* SwiftTimer.swift */; };
 		9F009DDCF311DB001695A3E37A396A00 /* Resourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63201C9D27BF614F7D5AFA28CFF5BC /* Resourse.swift */; };
 		A93739C4CBF47EDF2D7BA6A554760D54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		B25E82978F6C0CF75F887E0E9841203E /* Pods-SplashAd.Swift_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A171B2F5507E012DE62C2A86B362B /* Pods-SplashAd.Swift_Example-dummy.m */; };
@@ -40,28 +39,27 @@
 		293A171B2F5507E012DE62C2A86B362B /* Pods-SplashAd.Swift_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SplashAd.Swift_Example-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		43F8BB15EFF324E5FE7E4E8DB8C1E7B9 /* Pods-SplashAd.Swift_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SplashAd.Swift_Example.modulemap"; sourceTree = "<group>"; };
-		4AAF4F6A54F03F8F8B71C2B9E0553616 /* Pods_SplashAd_Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SplashAd_Swift_Example.framework; path = "Pods-SplashAd.Swift_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AAF4F6A54F03F8F8B71C2B9E0553616 /* Pods_SplashAd_Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplashAd_Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D19848DEA24188CE7848D42AD0E0AA2 /* SplashAd.Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SplashAd.Swift-prefix.pch"; sourceTree = "<group>"; };
 		6344C1743C76C3462C4A103BF517B7FE /* Pods-SplashAd.Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SplashAd.Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6780FFFE324504E962B2A7F3C6B9166F /* SplashAd.Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SplashAd.Swift-umbrella.h"; sourceTree = "<group>"; };
 		6D8F51A5FD6312BE745DAF31EFC11833 /* SplashAdManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplashAdManager.swift; sourceTree = "<group>"; };
 		7A42A6C6EDE9764E22A7D9432EFB2483 /* SplashAd.Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SplashAd.Swift-dummy.m"; sourceTree = "<group>"; };
 		809EEA323439429F2A906717B0C63AAB /* Pods-SplashAd.Swift_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SplashAd.Swift_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		90F8538581C6F757300E368CCB260165 /* SplashAd.Swift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SplashAd.Swift.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9248B09A3B6FE6006AFF5DEFF82670A8 /* SwiftTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
+		90F8538581C6F757300E368CCB260165 /* SplashAd.Swift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SplashAd.Swift.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		92ED3904914DF198744D5D608988AB83 /* SplashAd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplashAd.swift; sourceTree = "<group>"; };
 		95D7E48A561BADC4882C636328D0E987 /* Pods-SplashAd.Swift_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SplashAd.Swift_Example-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A224BAFDFC975126DF7167B5EC01DAB9 /* CountDownTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B22DC30AB74D896352AB7FAC3F1439ED /* Pods-SplashAd.Swift_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SplashAd.Swift_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B47315F4FF5BF539171E3C00BD8D6AC2 /* SplashAd.Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SplashAd.Swift.xcconfig; sourceTree = "<group>"; };
-		C6BE895E745E8DE29425DC06E937DE8D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C6BE895E745E8DE29425DC06E937DE8D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CC7009A130663BA2FD4EE5552158945D /* Pods-SplashAd.Swift_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SplashAd.Swift_Example-umbrella.h"; sourceTree = "<group>"; };
 		D18094AF59CCE9A5DE70B3D91F7471AB /* AdViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
-		E24BC48BBDDECF71E15F46E0DDE61C20 /* SplashAd_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SplashAd_Swift.framework; path = SplashAd.Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E24BC48BBDDECF71E15F46E0DDE61C20 /* SplashAd_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SplashAd_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354736AC830C2868E1C709B6F4F328B /* SplashAd.Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SplashAd.Swift.modulemap; sourceTree = "<group>"; };
 		EC2E157394AFF5F0F6166312694D5674 /* Pods-SplashAd.Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SplashAd.Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		ECE01F69D7459D25419D1981BA1A14F1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		ECE01F69D7459D25419D1981BA1A14F1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F1352070C0BBF2F377B33D5BD0B34BA6 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA63201C9D27BF614F7D5AFA28CFF5BC /* Resourse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Resourse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				A224BAFDFC975126DF7167B5EC01DAB9 /* CountDownTimer.swift */,
-				9248B09A3B6FE6006AFF5DEFF82670A8 /* SwiftTimer.swift */,
 			);
 			name = Timer;
 			path = Sources/Timer;
@@ -341,7 +338,6 @@
 				510529438CD40ECCE173B54809854DCB /* SplashAd.swift in Sources */,
 				33D9F9D47D3D98396091E918B3542F13 /* SplashAd.Swift-dummy.m in Sources */,
 				4E8D28999FEE2C043D0D9A19E549073B /* SplashAdManager.swift in Sources */,
-				7D31801B4CAA4C5A02202CF892EC1EBA /* SwiftTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,8 +547,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
