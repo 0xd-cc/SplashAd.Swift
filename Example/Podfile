@@ -1,0 +1,6 @@
+use_frameworks!
+platform :ios, "10.0"
+
+target 'SplashAd.Swift_Example' do
+  pod 'SplashAd.Swift', :path => '../'
+end

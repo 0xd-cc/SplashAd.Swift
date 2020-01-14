@@ -32,6 +32,7 @@ public class SplashAdManager {
     
     public func showAd(with resourse: ResourseType, appWindow: UIWindow) {
         self.appWindow = appWindow
+        adWindow.rootViewController = AdViewController()
         adWindow.makeKeyAndVisible()
         
         let contentView = ContentView(resource: resourse) { [weak self](event) in

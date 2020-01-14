@@ -1,0 +1,6 @@
+framework module Pods_SplashAd_Swift_Example {
+  umbrella header "Pods-SplashAd.Swift_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
