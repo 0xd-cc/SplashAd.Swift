@@ -9,7 +9,7 @@ import Foundation
 
 public class SplashAdManager {
     private var appWindow: UIWindow?
-    private var timer: SwiftCountDownTimer?
+    private var timer: CountdownTimer?
     
     private lazy var adWindow: UIWindow = {
         if #available(iOS 13.0, *) {
@@ -53,30 +53,17 @@ public class SplashAdManager {
             contentView.topAnchor.constraint(equalTo: adWindow.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: adWindow.bottomAnchor),
         ])
-        
-        timer = SwiftCountDownTimer(interval: DispatchTimeInterval.fromSeconds(1), times: Int(SplashAd.configuration.duration), handler: { [weak self] (timer, count) in
-            contentView.skipButton.setTitle(SplashAd.buttonTextFormatter(TimeInterval(count)), for: .normal)
-        }, completed: { [weak self] in
+
+        timer = CountdownTimer(seconds: SplashAd.configuration.duration, interval: 1, leeway: .seconds(0), queue: .main, valueChanged: { (_, seconds) in
+            contentView.skipButton.setTitle(SplashAd.buttonTextFormatter(TimeInterval(seconds)), for: .normal)
+        }, compelted: { [weak self] in
             self?.hide()
         })
-        timer?.reCountDown().suspend().start()
+        timer?.start()
     }
     
     public func hide() {
         appWindow?.makeKeyAndVisible()
         adWindow.subviews.forEach({ $0.removeFromSuperview() })
-    }
-}
-
-// MARK: Private functions
-private extension SplashAdManager {
-    func autoCloseIfNeeded() {
-        guard SplashAd.configuration.autoClose,
-            SplashAd.configuration.duration > 0 else {
-            return
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + SplashAd.configuration.duration) {
-            self.hide()
-        }
     }
 }
