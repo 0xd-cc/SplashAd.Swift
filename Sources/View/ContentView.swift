@@ -27,13 +27,9 @@ class ContentView: UIView {
         let postfix = resource.fileName.pathExtension
         switch postfix {
         case ".png", ".jpg", ".jpeg", ".gif":
-//            let file = Bundle.main.path(forResource: resource.fileName.components(separatedBy: postfix)[0], ofType: postfix.components(separatedBy: ".")[1])
-//            imageView.gifImage = SplashImage(contentsOfFile: file!)
             imageView.showLocalImageOrGif(name: resource.fileName.components(separatedBy: postfix)[0], postfix: postfix)
-//            imageView.gifImage = SplashImage(named: "Splash3", postfix: ".gif")
-//            imageView.isHighlighted = true
-        case ".mp4":
-            videoView.SplashVideoVC.p
+//        case ".mp4":
+//            videoView.SplashVideoVC.p
         default:
             print("11")
         }
@@ -44,24 +40,24 @@ class ContentView: UIView {
     }
     
     func setupSubviews() {
-//        addSubview(imageView)
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            imageView.topAnchor.constraint(equalTo: topAnchor),
-//            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//        ])
+        addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
 //        imageView.backgroundColor = .red
         
-        addSubview(videoView)
-        videoView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            videoView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            videoView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            videoView.topAnchor.constraint(equalTo: topAnchor),
-            videoView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+//        addSubview(videoView)
+//        videoView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            videoView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            videoView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            videoView.topAnchor.constraint(equalTo: topAnchor),
+//            videoView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//        ])
         
         addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
