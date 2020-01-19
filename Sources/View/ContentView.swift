@@ -10,6 +10,10 @@ class ContentView: UIView {
         return SplashImageView()
     }()
     
+    private lazy var videoView: SplashVideoView = {
+       return SplashVideoView()
+    }()
+    
     lazy var skipButton: UIButton = {
         return SplashAd.skipButtonGenerator()
     }()
@@ -28,6 +32,8 @@ class ContentView: UIView {
             imageView.showLocalImageOrGif(name: resource.fileName.components(separatedBy: postfix)[0], postfix: postfix)
 //            imageView.gifImage = SplashImage(named: "Splash3", postfix: ".gif")
 //            imageView.isHighlighted = true
+        case ".mp4":
+            videoView.SplashVideoVC.p
         default:
             print("11")
         }
@@ -38,15 +44,24 @@ class ContentView: UIView {
     }
     
     func setupSubviews() {
-        addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+//        addSubview(imageView)
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            imageView.topAnchor.constraint(equalTo: topAnchor),
+//            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//        ])
 //        imageView.backgroundColor = .red
+        
+        addSubview(videoView)
+        videoView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            videoView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            videoView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            videoView.topAnchor.constraint(equalTo: topAnchor),
+            videoView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
         
         addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
