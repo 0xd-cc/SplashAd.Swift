@@ -7,17 +7,25 @@
 
 import Foundation
 
-
-public protocol ResourseType {
-    var url: URL {get}
+public enum ResourseType {
+    ///网络来源
+    case url
+    ///本地图片、gif、视频
+    case local
+//    case gif     //本地gif
+//    case mp4     //本地mp4
+    ///自定义
+    case custom
 }
 
-
-public struct Resourse: ResourseType {
-    public var url: URL
-    
-    public init(url: URL) {
-        self.url = url
+public struct Resourse {
+    public var resourceType: ResourseType
+    public var fileName: String
+    ///resourceType: 文件来源,  fileName:文件名包含后缀
+    public init(resourceType: ResourseType, fileName: String) {
+        self.resourceType = resourceType
+        self.fileName = fileName
     }
+
 }
 

@@ -30,7 +30,7 @@ public class SplashAdManager {
     
     private init() {}
     
-    public func showAd(with resourse: ResourseType, appWindow: UIWindow) {
+    public func showAd(with resourse: Resourse, appWindow: UIWindow) {
         self.appWindow = appWindow
         adWindow.rootViewController = AdViewController()
         adWindow.makeKeyAndVisible()

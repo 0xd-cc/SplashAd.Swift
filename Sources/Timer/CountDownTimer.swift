@@ -8,23 +8,23 @@
 import Foundation
 
 class CountdownTimer {
-    typealias ValueChangedHandler = (CountdownTimer, _ currentValue: Int) -> Void
+    typealias ValueChangedHandler = (CountdownTimer, _ currentValue: Double) -> Void
     
     private let internalTimer: DispatchSourceTimer
     
     private var isRunning = false
     
-    private var currentValue: Int
+    private var currentValue: Double
     
     init(
-        seconds: Int,
-        interval: Int,
+        seconds: Double,
+        interval: Double,
         leeway: DispatchTimeInterval = .seconds(0),
         queue: DispatchQueue = .main,
         valueChanged: ValueChangedHandler?,
         compelted: (() -> Void)?
     ) {
-        currentValue = seconds + 1
+        currentValue = seconds + 1.0
 
         internalTimer = DispatchSource.makeTimerSource(queue: queue)
         internalTimer.setEventHandler { [weak self] in
@@ -39,7 +39,7 @@ class CountdownTimer {
             }
         }
         valueChanged?(self, self.currentValue)
-        internalTimer.schedule(deadline: .now(), repeating: .seconds(interval), leeway: leeway)
+        internalTimer.schedule(deadline: .now(), repeating: Double(interval), leeway: leeway)
     }
     
     @discardableResult

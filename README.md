@@ -77,11 +77,11 @@ Then, in `SceneDelegate.Swift`:
         SplashAd.buttonTextFormatter = { leftTimeInterval in
             return String(format: "跳过 %.0f", leftTimeInterval) + " 秒"
         }
-        // 设置广告时长
+        // 设置广告时长,如果不设置，默认为3秒，如果是Gif图片，默认播放完Gif图
         SplashAd.configuration.duration = 3
         
         // 显示广告
-        SplashAdManager.shared.showAd(with: Resourse(url: url), appWindow: window!)
+        SplashAdManager.shared.showAd(with resourse: Resourse, appWindow: UIWindow)
 
     }
 ```

@@ -34,13 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 设置跳过按钮文字格式
         SplashAd.buttonTextFormatter = { leftTimeInterval in
+            print("ttttttt---\(leftTimeInterval)")
             return String(format: "跳过 %.0f", leftTimeInterval) + " 秒"
         }
         // 设置广告时长
         SplashAd.configuration.duration = 3
         
         // 显示广告
-        SplashAdManager.shared.showAd(with: Resourse(url: url), appWindow: window!)
+        SplashAdManager.shared.showAd(with: .init(resourceType: .local, fileName: "Splash3.gif"), appWindow: window!)
+//        SplashAdManager.shared.showAd(with: .init(resourceType: .local, fileName: "Splash2.png"), appWindow: window!)
         return true
     }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 public class Configuration {
-    public var duration: Int = 3
+    public var duration: Double = 0 
     public var isSkipButtonHidden = false
     public var autoClose = true
 }

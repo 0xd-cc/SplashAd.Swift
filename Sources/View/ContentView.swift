@@ -6,8 +6,8 @@
 //
 
 class ContentView: UIView {
-    private lazy var imageView: UIImageView = {
-        return UIImageView()
+    private lazy var imageView: SplashImageView = {
+        return SplashImageView()
     }()
     
     lazy var skipButton: UIButton = {
@@ -16,10 +16,21 @@ class ContentView: UIView {
     
     private var eventCompleteHanlder: (Event) -> Void
     
-    init(resource: ResourseType, eventCompleteHanlder: @escaping ((Event) -> Void)) {
+    init(resource: Resourse, eventCompleteHanlder: @escaping ((Event) -> Void)) {
         self.eventCompleteHanlder = eventCompleteHanlder
         super.init(frame: .zero)
         setupSubviews()
+        let postfix = resource.fileName.pathExtension
+        switch postfix {
+        case ".png", ".jpg", ".jpeg", ".gif":
+//            let file = Bundle.main.path(forResource: resource.fileName.components(separatedBy: postfix)[0], ofType: postfix.components(separatedBy: ".")[1])
+//            imageView.gifImage = SplashImage(contentsOfFile: file!)
+            imageView.showLocalImageOrGif(name: resource.fileName.components(separatedBy: postfix)[0], postfix: postfix)
+//            imageView.gifImage = SplashImage(named: "Splash3", postfix: ".gif")
+//            imageView.isHighlighted = true
+        default:
+            print("11")
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -35,6 +46,7 @@ class ContentView: UIView {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+//        imageView.backgroundColor = .red
         
         addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
@@ -56,5 +68,13 @@ extension ContentView {
     enum Event {
         case skip
         case click(ad: ResourseType)
+    }
+}
+
+fileprivate extension String {
+    /// 从url中获取后缀 例：.png
+    var pathExtension: String {
+        guard let url = URL(string: self) else { return "" }
+        return url.pathExtension.isEmpty ? "" : ".\(url.pathExtension)"
     }
 }
