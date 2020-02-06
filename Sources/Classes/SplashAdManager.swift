@@ -30,7 +30,7 @@ public class SplashAdManager {
     
     private init() {}
     
-    public func showAd(with resourse: ResourseType, appWindow: UIWindow) {
+    public func showAd(with resourse: ResourseType, appWindow: UIWindow, eventCompleteHanlder: @escaping ((Event) -> Void)) {
         self.appWindow = appWindow
         adWindow.rootViewController = AdViewController()
         adWindow.makeKeyAndVisible()
@@ -39,8 +39,10 @@ public class SplashAdManager {
             switch event {
             case .skip:
                 self?.hide()
+                eventCompleteHanlder(.skip)
             case .click(let resource):
                 self?.hide()
+                eventCompleteHanlder(.click(ad: resource))
             }
         }
         

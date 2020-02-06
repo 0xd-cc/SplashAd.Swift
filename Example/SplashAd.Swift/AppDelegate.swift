@@ -40,7 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SplashAd.configuration.duration = 3
         
         // 显示广告
-        SplashAdManager.shared.showAd(with: Resourse(url: url), appWindow: window!)
+        SplashAdManager.shared.showAd(with: Resourse(url: url), appWindow: window!) { (event) in
+            switch event {
+            case .skip:
+                print("skip")
+            case .click(ad: let resource):
+                print("URL String： \(resource.url.absoluteString)")
+            }
+        }
         return true
     }
 
