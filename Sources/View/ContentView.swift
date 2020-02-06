@@ -15,11 +15,14 @@ class ContentView: UIView {
     }()
     
     private var eventCompleteHanlder: (Event) -> Void
+    private var resourceType: ResourseType
     
     init(resource: ResourseType, eventCompleteHanlder: @escaping ((Event) -> Void)) {
         self.eventCompleteHanlder = eventCompleteHanlder
+        self.resourceType = resource
         super.init(frame: .zero)
         setupSubviews()
+        addTapGesture()
     }
 
     required init?(coder: NSCoder) {
@@ -47,14 +50,17 @@ class ContentView: UIView {
         skipButton.addTarget(self, action: #selector(skip), for: .touchUpInside)
     }
     
+    private func addTapGesture() {
+        imageView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerHandle))
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
     @objc private func skip() {
         eventCompleteHanlder(.skip)
     }
-}
-
-extension ContentView {
-    enum Event {
-        case skip
-        case click(ad: ResourseType)
+    
+    @objc private func tapGestureRecognizerHandle() {
+        eventCompleteHanlder(.click(ad: self.resourceType))
     }
 }
