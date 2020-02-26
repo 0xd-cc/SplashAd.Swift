@@ -9,13 +9,21 @@ import UIKit
 import AVKit
 
 class SplashVideoView: UIView {
-    let SplashVideoVC = AVPlayerViewController()
+    var SplashAVPlayer: AVPlayer!
+    var playerLayer: AVPlayerLayer!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        let filePath = Bundle.main.path(forResource: "Splash4", ofType: ".mp4")
+    }
+    
+    func playVideo(by fileName: String) {
+        let filePath = Bundle.main.path(forResource: fileName, ofType:nil)
         let url = URL(fileURLWithPath: filePath!)
-        SplashVideoVC.player = AVPlayer(url: url)
+        SplashAVPlayer = AVPlayer(url: url)
+        playerLayer = AVPlayerLayer(player: SplashAVPlayer)
+        self.layer.addSublayer(playerLayer)
+        playerLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+
+        SplashAVPlayer.play()
     }
     
     required init?(coder: NSCoder) {

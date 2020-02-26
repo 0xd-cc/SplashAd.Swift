@@ -11,9 +11,9 @@ import MobileCoreServices
 
 class SplashImage {
     /// 内部读取图片帧队列
-    fileprivate lazy var readFrameQueue: DispatchQueue = DispatchQueue(label: "image.queue", qos: .background)
+    private lazy var readFrameQueue: DispatchQueue = DispatchQueue(label: "image.queue", qos: .background)
     /// 图片资源数据
-    fileprivate var cgImageSource: CGImageSource?
+    private var cgImageSource: CGImageSource?
     /// 总动画时长
     var totalDuration: TimeInterval = 0.0
     /// 每一帧对应的动画时长
@@ -69,7 +69,7 @@ class SplashImage {
     }
     
     /// 判断图片数据源包含 GIF 信息
-    fileprivate class func isCGImageSourceContainAnimatedGIF(cgImageSource: CGImageSource) -> Bool {
+    private class func isCGImageSourceContainAnimatedGIF(cgImageSource: CGImageSource) -> Bool {
         guard let type = CGImageSourceGetType(cgImageSource) else { return false }
         let isGIF = UTTypeConformsTo(type, kUTTypeGIF)
         let imgCount = CGImageSourceGetCount(cgImageSource)
@@ -77,7 +77,7 @@ class SplashImage {
     }
     
     /// 获取图片数据源的第 index 帧图片的动画时间
-    fileprivate class func getCGImageSourceGifFrameDelay(imageSource: CGImageSource, index: Int) -> TimeInterval {
+    private class func getCGImageSourceGifFrameDelay(imageSource: CGImageSource, index: Int) -> TimeInterval {
         var delay = 0.0
         guard let imgProperties: NSDictionary = CGImageSourceCopyPropertiesAtIndex(imageSource, index, nil) else { return delay }
         // 获取该帧图片的属性字典
@@ -94,7 +94,7 @@ class SplashImage {
     }
     
     /// 根据图片数据源初始化，设置动画总时长、总帧数等属性
-    fileprivate func initGIFSource(cgImageSource: CGImageSource) {
+    private func initGIFSource(cgImageSource: CGImageSource) {
         let numOfFrames = CGImageSourceGetCount(cgImageSource)
         frameTotalCount = numOfFrames
         for index in 0..<numOfFrames {

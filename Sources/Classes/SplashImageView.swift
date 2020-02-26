@@ -9,19 +9,19 @@ import UIKit
 
 class SplashImageView: UIImageView {
     /// 后台下载图片队列
-      fileprivate lazy var downloadImageQueue: DispatchQueue = DispatchQueue(label: "image.gif.downloadImageQueue", qos: .background)
+      private lazy var downloadImageQueue: DispatchQueue = DispatchQueue(label: "image.gif.downloadImageQueue", qos: .background)
       /// 累加器，用于计算一个定时循环中的可用动画时间
-      fileprivate var accumulator: TimeInterval = 0.0
+      private var accumulator: TimeInterval = 0.0
       /// 当前正在显示的图片帧索引
-      fileprivate var currentFrameIndex: Int = 0
+      private var currentFrameIndex: Int = 0
       /// 当前正在显示的图片
-      fileprivate var currentFrame: UIImage?
+      private var currentFrame: UIImage?
       /// 动画图片存储属性
-      fileprivate var animatedImage: SplashImage?
+      private var animatedImage: SplashImage?
       /// 定时器
-      fileprivate var displayLink: CADisplayLink!
+      private var displayLink: CADisplayLink!
       /// 当前将要显示的 GIF 图片资源路径
-      fileprivate var gifUrl: URL?
+      private var gifUrl: URL?
     
       /// 重载初始化，初始化定时器
       required init?(coder aDecoder: NSCoder) {
@@ -138,14 +138,14 @@ class SplashImageView: UIImageView {
       }
       
       /// 初始化定时器
-      fileprivate func setupDisplayLink() {
+      private func setupDisplayLink() {
           displayLink = CADisplayLink(target: self, selector: #selector(SplashImageView.changeKeyFrame))
         self.displayLink.add(to: RunLoop.main, forMode: .common)
           self.displayLink.isPaused = true
       }
       
       /// 动态改变图片动画帧
-      @objc fileprivate func changeKeyFrame() {
+      @objc private func changeKeyFrame() {
           if let animatedImage = self.animatedImage {
               guard self.currentFrameIndex < animatedImage.frameTotalCount else { return }
               self.accumulator += min(1.0, displayLink.duration)
