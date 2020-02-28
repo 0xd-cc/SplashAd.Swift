@@ -23,12 +23,13 @@ class ContentView: UIView {
     init(resource: Resourse, eventCompleteHanlder: @escaping ((Event) -> Void)) {
         self.eventCompleteHanlder = eventCompleteHanlder
         super.init(frame: .zero)
-        setupSubviews()
         let postfix = resource.fileName.pathExtension
         switch postfix {
         case ".png", ".jpg", ".jpeg", ".gif":
+            setupSubviews(type: "Image")
             imageView.showLocalImageOrGif(name: resource.fileName.components(separatedBy: postfix)[0], postfix: postfix)
         case ".mp4":
+            setupSubviews(type: "Video")
             videoView.playVideo(by: resource.fileName)
         default:
             print("none")
@@ -39,21 +40,22 @@ class ContentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupSubviews() {
-//        addSubview(imageView)
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            imageView.topAnchor.constraint(equalTo: topAnchor),
-//            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//        ])
-//        imageView.backgroundColor = .red
-        
-        addSubview(videoView)
-        videoView.translatesAutoresizingMaskIntoConstraints = false
-        videoView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-        videoView.backgroundColor = .red
+    func setupSubviews(type: String) {
+        if type == "Video" {
+            addSubview(videoView)
+            videoView.translatesAutoresizingMaskIntoConstraints = false
+            videoView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        } else {
+            addSubview(imageView)
+            imageView.sizeToFit()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                imageView.topAnchor.constraint(equalTo: topAnchor),
+                imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            ])
+        }
         
         addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false

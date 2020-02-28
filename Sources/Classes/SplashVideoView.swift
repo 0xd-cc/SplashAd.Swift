@@ -20,8 +20,12 @@ class SplashVideoView: UIView {
         let url = URL(fileURLWithPath: filePath!)
         SplashAVPlayer = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: SplashAVPlayer)
+        playerLayer.videoGravity = .resizeAspectFill
+        //设置时长
+        SplashAd.configuration.duration = CMTimeGetSeconds((SplashAVPlayer.currentItem?.asset.duration)!)
         self.layer.addSublayer(playerLayer)
-        playerLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+
+        playerLayer.frame = self.bounds
 
         SplashAVPlayer.play()
     }
