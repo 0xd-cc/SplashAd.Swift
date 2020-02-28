@@ -40,16 +40,15 @@ class ContentView: UIView {
         ])
         
         addSubview(skipButton)
-        skipButtonLayout()
+        layoutSkipButton()
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         skipButton.isHidden = SplashAd.configuration.isSkipButtonHidden
-        
         skipButton.addTarget(self, action: #selector(skip), for: .touchUpInside)
     }
     
-    private func skipButtonLayout() {
-        let left = SplashAd.configuration.skipButtonLocation.location.self.0
-        let top = SplashAd.configuration.skipButtonLocation.location.self.1
+    private func layoutSkipButton() {
+        let left = SplashAd.configuration.skipButtonPosition.origin.0
+        let top = SplashAd.configuration.skipButtonPosition.origin.1
         NSLayoutConstraint.activate([
             skipButton.leftAnchor.constraint(equalTo: leftAnchor, constant: left),
             skipButton.topAnchor.constraint(equalTo: topAnchor, constant: top),

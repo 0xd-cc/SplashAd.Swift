@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置广告时长
         SplashAd.configuration.duration = 3
         // 设置 skip button 位置，默认位置为右上
-        SplashAd.configuration.skipButtonLocation = .custom(left: UIScreen.main.bounds.size.width - 200, top: 300)
+        SplashAd.configuration.skipButtonPosition = .custom(left: UIScreen.main.bounds.size.width - 200, top: 300)
         // 显示广告
         SplashAdManager.shared.showAd(with: Resourse(url: url), appWindow: window!) { (event) in
             switch event {
