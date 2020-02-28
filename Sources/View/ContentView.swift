@@ -36,7 +36,7 @@ class ContentView: UIView {
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         addSubview(skipButton)
