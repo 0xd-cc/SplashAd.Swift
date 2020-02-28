@@ -40,14 +40,21 @@ class ContentView: UIView {
         ])
         
         addSubview(skipButton)
+        skipButtonLayout()
         skipButton.translatesAutoresizingMaskIntoConstraints = false
+        skipButton.isHidden = SplashAd.configuration.isSkipButtonHidden
+        
+        skipButton.addTarget(self, action: #selector(skip), for: .touchUpInside)
+    }
+    
+    private func skipButtonLayout() {
+        let left = SplashAd.configuration.skipButtonLocation.location.self.0
+        let top = SplashAd.configuration.skipButtonLocation.location.self.1
         NSLayoutConstraint.activate([
-            skipButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            skipButton.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+            skipButton.leftAnchor.constraint(equalTo: leftAnchor, constant: left),
+            skipButton.topAnchor.constraint(equalTo: topAnchor, constant: top),
             skipButton.heightAnchor.constraint(equalToConstant: 20)
         ])
-        skipButton.isHidden = SplashAd.configuration.isSkipButtonHidden
-        skipButton.addTarget(self, action: #selector(skip), for: .touchUpInside)
     }
     
     private func addTapGesture() {
