@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        SplashAd.configuration.duration = 5
         
         // 显示广告
-        SplashAdManager.shared.showAd(with: Resourse(resourceType: .local, fileName: "Splash4.mp4"), appWindow: window!)
+        SplashAdManager.shared.showAd(with: Resourse(resourceType: .local, fileName: "video0.mp4"), appWindow: window!)
         return true
     }
 
