@@ -4,7 +4,11 @@
 //
 //  Created by 0xd on 2020/1/7.
 //
-
+import AVFoundation
+enum viewType {
+    case video
+    case image
+}
 class ContentView: UIView {
     private lazy var imageView: SplashImageView = {
         return SplashImageView()
@@ -20,19 +24,21 @@ class ContentView: UIView {
     
     private var eventCompleteHanlder: (Event) -> Void
     
-    init(resource: Resourse, eventCompleteHanlder: @escaping ((Event) -> Void)) {
+    init(resource: ResourseType, eventCompleteHanlder: @escaping ((Event) -> Void)) {
         self.eventCompleteHanlder = eventCompleteHanlder
         super.init(frame: .zero)
-        let postfix = resource.fileName.pathExtension
-        switch postfix {
-        case ".png", ".jpg", ".jpeg", ".gif":
-            setupSubviews(type: "Image")
-            imageView.showLocalImageOrGif(name: resource.fileName.components(separatedBy: postfix)[0], postfix: postfix)
-        case ".mp4":
-            setupSubviews(type: "Video")
-            videoView.playVideo(by: resource.fileName)
-        default:
-            print("none")
+        
+        switch resource {
+        case .url(url: let path):
+            if judgeMVWithPath(Bundle.main.path(forResource: path, ofType: nil)!) {
+                setupSubviews(type: .video)
+                videoView.playVideo(by: path)
+            } else {
+                setupSubviews(type: .image)
+                imageView.showLocalImage(name: path)
+            }
+            
+            break
         }
     }
 
@@ -40,8 +46,15 @@ class ContentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupSubviews(type: String) {
-        if type == "Video" {
+    ///判断是否是视频
+    func judgeMVWithPath(_ path: String) -> Bool {
+        let asset = AVURLAsset(url: URL(fileURLWithPath: path), options: [:])
+        let tracks = asset.tracks(withMediaType: .video)
+        return tracks.count > 0
+    }
+    
+    func setupSubviews(type: viewType) {
+        if type == .video {
             addSubview(videoView)
             videoView.translatesAutoresizingMaskIntoConstraints = false
             videoView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)

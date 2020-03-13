@@ -33,9 +33,9 @@ class SplashImage {
     }
 
     /// 兼容 UIImage named 调用
-    convenience init?(named name: String!, postfix: String!) {
-        guard let path = Bundle.main.path(forResource: name, ofType: postfix) else { return nil }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { return nil }
+    convenience init(named name: String) throws {
+        guard let path = Bundle.main.path(forResource: name, ofType: nil) else { throw NSError() }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { throw NSError() }
         self.init(data: data)
     }
 
@@ -53,17 +53,18 @@ class SplashImage {
 //    }
 
     /// 兼容 UIImage data 调用
-    convenience init?(data: Data) {
+    convenience init(data: Data) {
         self.init(data: data, scale: 1.0)
     }
     
     /// 根据二进制数据初始化【核心初始化方法】
-    init?(data: Data, scale: CGFloat) {
+    init(data: Data, scale: CGFloat) {
         guard let cgImageSource = CGImageSourceCreateWithData(data as CFData, nil) else { return }
         self.cgImageSource = cgImageSource
         if SplashImage.isCGImageSourceContainAnimatedGIF(cgImageSource: cgImageSource) {
             initGIFSource(cgImageSource: cgImageSource)
         } else {
+            #warning("处理else 错误异常情况")
             image = UIImage(data: data, scale: scale)
         }
     }

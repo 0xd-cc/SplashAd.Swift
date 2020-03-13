@@ -7,8 +7,8 @@
 
 import Foundation
 
-public class Configuration {
-    public var duration: Double = 0 
+public struct Configuration {
+    public var duration: Double = 3
     public var isSkipButtonHidden = false
     public var autoClose = true
 }

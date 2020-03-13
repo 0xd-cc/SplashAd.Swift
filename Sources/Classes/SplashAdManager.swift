@@ -30,11 +30,15 @@ public class SplashAdManager {
     
     private init() {}
     
-    public func showAd(with resourse: Resourse, appWindow: UIWindow) {
+    public func showAd(with resourse: ResourseType, appWindow: UIWindow) {
         self.appWindow = appWindow
         adWindow.rootViewController = AdViewController()
         adWindow.makeKeyAndVisible()
-        
+//        switch resourse {
+//        case .url(url: let path):
+////            path///
+//            break
+//        }
         let contentView = ContentView(resource: resourse) { [weak self](event) in
             switch event {
             case .skip:

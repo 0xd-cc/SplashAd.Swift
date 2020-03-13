@@ -170,10 +170,9 @@ class SplashImageView: UIImageView {
       }
       
       /// 显示本地图片或者GIF
-    func showLocalImageOrGif(name: String?, postfix: String?) {
+    func showLocalImage(name: String?) {
         guard let name = name else { return }
-        guard let postfix = postfix else { return}
-        self.gifImage = SplashImage(named: name, postfix: postfix)
+        self.gifImage = try? SplashImage(named: name)
         if SplashAd.configuration.duration <= 0 && (self.gifImage?.frameTotalCount)! > 1 {//gif图
             SplashAd.configuration.duration = Double(self.gifImage?.totalDuration ?? 0.00)
         } else if SplashAd.configuration.duration <= 0 && (self.gifImage?.frameTotalCount)! == 0{//普通图片
